@@ -1,6 +1,7 @@
 numpy==1.23.5
 scipy==1.10.0
 matplotlib==3.6.3
+pyqt5==5.15.10
 numba==0.56.4
 opencv-python==4.6.0.66
 tqdm
@@ -12,6 +13,7 @@ imageio==2.25.0
 imageio-ffmpeg==0.4.8
 pytransform3d==2.2.0
 py3rosmsgs==1.18.2
+rosbags==0.9.13
 bagpy==0.5
 --extra-index-url https://rospypi.github.io/simple/
 roslz4 

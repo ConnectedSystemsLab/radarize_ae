@@ -1,7 +1,7 @@
 #!/bin/bash
 
 > log
-for d in "gt_gt_balanced" "gt_radarhd_scan_only" "rnin_radarhd_balanced" "milliego_radarhd_balanced" "odometry_radarhd_millislam" "odometry_unet_millislam"
+for d in "gt_gt_default" "gt_radarhd_scan_only" "rnin_radarhd_default" "milliego_radarhd_default" "odometry_radarhd_radar" "odometry_unet_radar"
 do
     for f in "main_0" "main_1" "main_2" "main_3" "main_4"
     do 
@@ -10,7 +10,7 @@ do
 done
 
 > slam_result.txt
-for d in "gt_radarhd_scan_only" "rnin_radarhd_balanced" "milliego_radarhd_balanced" "odometry_radarhd_millislam" "odometry_unet_millislam"
+for d in "gt_radarhd_scan_only" "rnin_radarhd_default" "milliego_radarhd_default" "odometry_radarhd_radar" "odometry_unet_radar"
 do
     for f in "ape_trans" "ape_rot" "rpe_trans" "rpe_rot"
     do 

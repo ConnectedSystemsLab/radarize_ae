@@ -37,6 +37,8 @@ def args():
     return args
 
 def load_trajs(ref_file, est_file):
+    print(ref_file)
+    print(est_file)
     traj_ref = file_interface.read_tum_trajectory_file(ref_file)
     traj_est = file_interface.read_tum_trajectory_file(est_file)
 
@@ -54,15 +56,15 @@ def load_trajs(ref_file, est_file):
     traj_est_aligned_origin.align_origin(traj_ref)
 
 
-    fig = plt.figure()
-    traj_by_label = {
-        "estimate (align origin)": traj_est_aligned_origin,
-        "estimate (aligned)": traj_est_aligned,
-        "reference": traj_ref
-    }
-    plot.trajectories(fig, traj_by_label, plot.PlotMode.xy)
-    plt.savefig(est_file.replace('/output/', '/result/').replace('.txt', '.png'))
-    plt.close(fig)
+    # fig = plt.figure()
+    # traj_by_label = {
+    #     "estimate (align origin)": traj_est_aligned_origin,
+    #     "estimate (aligned)": traj_est_aligned,
+    #     "reference": traj_ref
+    # }
+    # plot.trajectories(fig, traj_by_label, plot.PlotMode.xy)
+    # plt.savefig(est_file.replace('/output/', '/result/').replace('.txt', '.png'))
+    # plt.close(fig)
 
     data = (traj_ref, traj_est_aligned) 
 
@@ -111,12 +113,15 @@ if __name__ == '__main__':
     rpe_full = np.array([])
 
     # Create dir.
-    result_dir = os.path.join(cfg['OUTPUT_DIR'], args.input, 'result')
+    result_dir = os.path.join(cfg['OUTPUT_DIR'], 
+                              args.input, 
+                              'result')
     if not os.path.exists(result_dir):
         os.makedirs(result_dir)
 
+
     for x in cfg['DATASET']['TEST_SPLIT']:
-        ref_file = os.path.join(cfg['OUTPUT_DIR'], 'gt_gt_balanced', 'output', f'{x}.txt')
+        ref_file = os.path.join(cfg['OUTPUT_DIR'], 'gt_gt_default', 'output', f'{x}.txt')
         est_file = os.path.join(cfg['OUTPUT_DIR'], args.input, f'{x}.txt')
         data = load_trajs(ref_file, est_file) 
         ape_translation = np.append(ape_translation, get_stat('ape', 'translation', data))
@@ -135,8 +140,8 @@ if __name__ == '__main__':
     print(f"{cfg['OUTPUT_DIR']}{args.input} ape_rot: ", np.mean(ape_rotation_angle))
     print(f"{cfg['OUTPUT_DIR']}{args.input} rpe_rot: ", np.mean(rpe_rotation_angle))
 
-    if (args.input != "gt_gt_balanced"):
-        gt_gt_balanced = np.load(os.path.join(cfg['OUTPUT_DIR'], 'gt_gt_balanced', 'result', 'traj_eval.npz'))
+    if (args.input != "gt_gt_default"):
+        gt_gt_default = np.load(os.path.join(cfg['OUTPUT_DIR'], 'gt_gt_default/output', 'result', 'traj_eval.npz'))
 
     # Plot APE and RPE tables.
 
@@ -146,8 +151,8 @@ if __name__ == '__main__':
     idxs = np.argsort(x)
     x = x[idxs]
     plt.bar(x, ape_translation[idxs])
-    if (args.input != "gt_gt_balanced"):
-        plt.bar(x, gt_gt_balanced['ape_trans'][idxs])
+    if (args.input != "gt_gt_default"):
+        plt.bar(x, gt_gt_default['ape_trans'][idxs])
     plt.xlabel("Dataset")
     plt.ylabel("APE translation")
     ax = plt.gca()
@@ -165,8 +170,8 @@ if __name__ == '__main__':
     idxs = np.argsort(x)
     x = x[idxs]
     plt.bar(x, rpe_translation[idxs])
-    if (args.input != "gt_gt_balanced"):
-        plt.bar(x, gt_gt_balanced['rpe_trans'][idxs])
+    if (args.input != "gt_gt_default"):
+        plt.bar(x, gt_gt_default['rpe_trans'][idxs])
     plt.xlabel("Dataset")
     plt.ylabel("RPE translation")
     ax = plt.gca()
@@ -184,8 +189,8 @@ if __name__ == '__main__':
     idxs = np.argsort(x)
     x = x[idxs]
     plt.bar(x, ape_rotation_angle[idxs])
-    if (args.input != "gt_gt_balanced"):
-        plt.bar(x, gt_gt_balanced['ape_rot'][idxs])
+    if (args.input != "gt_gt_default"):
+        plt.bar(x, gt_gt_default['ape_rot'][idxs])
     plt.xlabel("Dataset")
     plt.ylabel("APE rotation angle")
     ax = plt.gca()
@@ -203,8 +208,8 @@ if __name__ == '__main__':
     idxs = np.argsort(x)
     x = x[idxs]
     plt.bar(x, rpe_rotation_angle[idxs])
-    if (args.input != "gt_gt_balanced"):
-        plt.bar(x, gt_gt_balanced['rpe_rot'][idxs])
+    if (args.input != "gt_gt_default"):
+        plt.bar(x, gt_gt_default['rpe_rot'][idxs])
     plt.xlabel("Dataset")
     plt.ylabel("RPE rotation angle")
     ax = plt.gca()
