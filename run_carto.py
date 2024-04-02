@@ -55,7 +55,7 @@ if __name__ == '__main__':
     args = args()
     update_config(cfg, args)
 
-    print(f"Running cartographer on Odometry {args.odom} and Scan {args.scan}...")
+    print(f"Running cartographer on Odometry {args.odom} and Scan {args.scan} with Params {args.params}...")
 
     # Create dir.
     carto_in_dir = os.path.join(cfg['OUTPUT_DIR'],  
@@ -78,8 +78,8 @@ if __name__ == '__main__':
     # Convert odom + scans into bags.
     run_commands([['./export_cartographer.py',
                    f'--cfg={args.cfg}',
-                   f'--odom_path={glob.glob(os.path.join(odom_dir, "*"+x+".txt"))[0]}',
-                   f'--scan_path={glob.glob(os.path.join(scan_dir, "*"+x+".npz"))[0]}',
+                   f'--odom_path={os.path.join(odom_dir, x+".txt")}',
+                   f'--scan_path={os.path.join(scan_dir, x+".npz")}',
                    f'--output_path={os.path.join(carto_in_dir, x+".bag")}'] for x in cfg['DATASET']['TEST_SPLIT']], args.n_proc)
 
     # Run cartographer on all test bags.
