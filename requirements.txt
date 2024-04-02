@@ -1,0 +1,22 @@
+numpy==1.23.5
+scipy==1.10.0
+matplotlib==3.6.3
+numba==0.56.4
+opencv-python==4.6.0.66
+tqdm
+pyyaml
+yacs
+easydict
+pillow==9.4.0
+imageio==2.25.0
+imageio-ffmpeg==0.4.8
+pytransform3d==2.2.0
+py3rosmsgs==1.18.2
+bagpy==0.5
+--extra-index-url https://rospypi.github.io/simple/
+roslz4 
+evo==1.21.0
+cvbridge3==1.1
+pycryptodome==3.17
+einops==0.6.0
+torch-summary==1.4.5
