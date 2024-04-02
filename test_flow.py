@@ -89,7 +89,7 @@ if __name__ == '__main__':
         flow_gt_xs, flow_gt_ys = [], []
 
         with torch.no_grad():
-            for i, batch in enumerate(test_loader):
+            for i, batch in enumerate(tqdm(test_loader)):
                 for k, v in batch.items():
                     batch[k] = v.to(device)
                 curr_time = batch['time'].cpu().numpy()

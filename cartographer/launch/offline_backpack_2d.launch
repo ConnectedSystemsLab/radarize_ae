@@ -21,7 +21,7 @@
   <arg name="no_rviz" default="true"/>
   <arg name="rviz_config" default="$(find cartographer_ros)/configuration_files/demo_2d.rviz"/>
   <arg name="configuration_directory" default="$(find cartographer_ros)/configuration_files"/>
-  <arg name="configuration_basenames" default="balanced.lua"/>
+  <arg name="configuration_basenames" default="default.lua"/>
   <arg name="urdf_filenames" default="$(find cartographer_ros)/urdf/backpack_2d.urdf"/>
   <arg name="launch_prefix" default=""/>
 

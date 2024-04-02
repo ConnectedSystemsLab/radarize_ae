@@ -19,7 +19,7 @@
 <launch>
   <param name="/use_sim_time" value="true" />
 
-  <arg name="configuration_basename" default="balanced.lua"/>
+  <arg name="configuration_basename" default="default.lua"/>
 
   <include file="$(find cartographer_ros)/launch/backpack_2d.launch" >
     <arg name="configuration_basenames" value="$(arg configuration_basename)"/>

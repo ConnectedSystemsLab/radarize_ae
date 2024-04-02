@@ -115,7 +115,7 @@ def test(net, device, test_loader):
     m = {}
 
     with torch.no_grad():
-        for batch in test_loader:
+        for batch in tqdm(test_loader):
             for k, v in batch.items():
                 batch[k] = v.to(device)
 

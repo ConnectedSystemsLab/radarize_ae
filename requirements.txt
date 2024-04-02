@@ -17,6 +17,7 @@ bagpy==0.5
 roslz4 
 evo==1.21.0
 cvbridge3==1.1
+open3d==0.16.0
 pycryptodome==3.17
 einops==0.6.0
 torch-summary==1.4.5

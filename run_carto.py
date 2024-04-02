@@ -39,9 +39,8 @@ def args():
                         help="Cartographer parameters.", 
                         required=True)
     parser.add_argument('--demo',
-                        default=False,
-                        help="Turn Rviz on",
-                        action=argparse.BooleanOptionalAction)
+                        action='store_true',
+                        help="Turn Rviz on")
     args = parser.parse_args()
 
     return args
@@ -86,14 +85,17 @@ if __name__ == '__main__':
     # Run cartographer on all test bags.
     for x in cfg['DATASET']['TEST_SPLIT']:
         if args.demo:
-            subprocess.run(['roslaunch', 'cartographer_ros', 'demo_backpack_2d.launch',
-                            f'configuration_basenames:={args.params}.lua',
-                            f'collect_metrics:=true',
-                            f'bag_filename:={os.path.abspath(os.path.join(carto_in_dir, x+".bag"))}'], check=True)
+            subprocess.run(['roslaunch', 
+                          'cartographer_ros', 
+                          'demo_backpack_2d.launch',
+                          f'configuration_basename:={args.params}.lua',
+                          f'bag_filename:={os.path.abspath(os.path.join(carto_in_dir, x+".bag"))}'])
         else:
-            subprocess.run(['roslaunch', 'cartographer_ros', 'offline_backpack_2d.launch',
-                            f'configuration_basenames:={args.params}.lua',
-                            f'bag_filenames:={os.path.abspath(os.path.join(carto_in_dir, x+".bag"))}'], check=True)
+            subprocess.run(['roslaunch', 
+                          'cartographer_ros', 
+                          'offline_backpack_2d.launch',
+                          f'configuration_basenames:={args.params}.lua',
+                          f'bag_filenames:={os.path.abspath(os.path.join(carto_in_dir, x+".bag"))}'])
 
     # Convert cartographer output to rosbag.
     run_commands([['cartographer_dev_pbstream_trajectories_to_rosbag',
