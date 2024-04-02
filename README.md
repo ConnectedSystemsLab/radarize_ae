@@ -19,7 +19,7 @@ conda env create -f env.yaml
 - Download the saved models+outputs from [Box link]() and unzip into this directory.
 
 ### Sensor Arrangement
-<img src="calib/coords_1843.drawio.png" width="600" />
+<img src="calib/coords_1843.png" width="300" />
 
 ### Rosbag Format
 
