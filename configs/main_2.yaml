@@ -1,0 +1,147 @@
+DATASET:
+  TRAIN_SPLIT:
+    - walk_ece_upper_3
+    - cart_sc_3
+    - cart_ece_basement_1
+    - bot_sc_4thfloor_0
+    - cart_ece_upper_0
+    - bot_beckman_5thfloor_4
+    - bot_ece_basement_2
+    - cart_ece_gf_0
+    - walk_csl_basement_2
+    - bot_ece_5thfloor_2
+    - walk_sc_groundfloor_3
+    - walk_ece_basement_6
+    - cart_sc_loop_3
+    - cart_ece_upper_loop_0
+    - bot_csl_basement2_2
+    - cart_ece_gf_3
+    - bot_sc_basement_0
+    - walk_ece_basement_0
+    - cart_ece_upper_loop_1
+    - cart_sc_0
+    - bot_sc_4thfloor_3
+    - bot_sc_4thfloor_2
+    - cart_ece_gf_2
+    - walk_ece_upper_1
+    - walk_ece_basement_2
+    - bot_csl_basement_4
+    - cart_sc_1
+    - walk_sc_office_2
+    - cart_ece_basement_0
+    - bot_ece_5thfloor_3
+    - walk_ece_upper_2
+    - walk_csl_groundfloor_2
+    - walk_ece_basement_5
+    - bot_ece_basement_9
+    - bot_beckman_5thfloor_1
+    - bot_csl_4thfloor_loop
+    - bot_csl_basement2_1
+    - bot_beckman_5thfloor_3
+    - walk_ece_basement_3
+    - bot_beckman_3rdfloor_4
+    - walk_ece_basement_4
+    - walk_sc_office_3
+    - cart_csl_upper_loop_0
+    - bot_csl_basement2_0
+    - bot_ece_basement_0
+    - cart_csl_basement_3
+    - bot_ece_5thfloor_0
+    - walk_sc_basement_3
+    - walk_csl_basement_4
+    - cart_csl_basement_2
+    - bot_ece_basement_1
+    - bot_beckman_3rdfloor_2
+    - bot_csl_4thfloor_0
+    - bot_sc_basement_4
+    - bot_beckman_5thfloor_0
+    - bot_beckman_basement_0
+    - bot_ece_basement_5
+    - bot_ece_5thfloor_4
+    - bot_sc_basement_2
+    - cart_csl_upper_2
+    - bot_beckman_3rdfloor_0
+    - cart_sc_loop_0
+    - bot_ece_basement_4
+    - cart_sc_5
+    - bot_ece_basement_3
+    - bot_beckman_basement_2
+    - walk_csl_basement_1
+    - bot_csl_basement_hall
+    - bot_csl_4thfloor_3
+    - cart_sc_loop_1
+    - bot_beckman_basement_1
+    - bot_beckman_basement_3
+    - cart_ece_basement_2
+    - cart_ece_gf_1
+    - walk_ece_upper_4
+    - cart_sc_loop_2
+    - walk_sc_groundfloor_1
+    - bot_beckman_3rdfloor_3
+    - bot_ece_basement_7
+    - bot_sc_basement_3
+    - cart_ece_upper_1
+    - walk_ece_upper_0
+    - bot_beckman_basement_4
+
+  VAL_SPLIT:
+    - bot_ece_5thfloor_1
+    - bot_sc_4thfloor_1
+    - walk_sc_basement_1
+    - bot_ece_basement_8
+    - bot_csl_4thfloor_1
+    - walk_ece_basement_1
+    - bot_beckman_5thfloor_2
+    - cart_csl_basement_1
+    - cart_ece_basement_3
+    - cart_csl_basement_0
+    - walk_csl_basement_0
+    - walk_csl_groundfloor_1
+    - cart_csl_upper_3
+
+  TEST_SPLIT:
+    - walk_sc_groundfloor_0
+    - bot_ece_basement_6
+    - walk_sc_office_4
+    - cart_sc_4
+    - bot_sc_basement_1
+    - bot_csl_basement_3
+    - bot_csl_basement_2
+    - bot_beckman_3rdfloor_1
+    - walk_sc_basement_4
+    - walk_sc_basement_2
+    - bot_csl_4thfloor_2
+    - walk_csl_groundfloor_3
+    - cart_csl_upper_0
+    - cart_csl_upper_loop_1
+    - cart_csl_upper_4
+    - walk_csl_basement_3
+    - bot_csl_basement2_3
+    - walk_sc_office_1
+    - cart_sc_2
+    - walk_sc_office_0
+    - bot_csl_basement_1
+    - cart_ece_upper_4
+    - walk_csl_groundfloor_0
+    - bot_csl_basement_0
+    - walk_sc_basement_0
+    - cart_csl_upper_1
+    - walk_sc_groundfloor_2
+    - cart_ece_upper_3
+
+
+OUTPUT_DIR: 'output_main_2/'
+
+
+FLOW:
+  TRAIN:
+    EPOCHS: 30
+
+ROTNET:
+  TRAIN:
+    EPOCHS: 30
+
+UNET:
+  TRAIN:
+    EPOCHS: 5
+
