@@ -1,6 +1,4 @@
-# Radarize
-
-## Getting Started
+## Radarize: Enhancing Radar SLAM with Generalizable Doppler-Based Odometry [MobiSys'24]
 
 ### Prerequisites
 
@@ -19,7 +17,7 @@ conda activate radarize_ae
 source <catkin_ws>/install_isolated/setup.bash
 ```
 
-## Dataset Preparation
+### Dataset Preparation
 
 1. Download the dataset from the [Box link]() and unzip into this directory.
 2. Download the saved models+outputs from [Box link]() and unzip into this directory.
