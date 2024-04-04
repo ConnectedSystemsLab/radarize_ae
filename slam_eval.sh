@@ -1,11 +1,13 @@
 #!/bin/bash
 
+set -e
+
 > log
 for d in "gt_gt_default" "gt_radarhd_scan_only" "rnin_radarhd_default" "milliego_radarhd_default" "odometry_radarhd_radar" "odometry_unet_radar"
 do
     for f in "main_0" "main_1" "main_2" "main_3" "main_4"
     do 
-        ./eval_traj.py --cfg=configs/$f.yaml --input=$d/output | tee -a log
+        ./tools/eval_traj.py --cfg=configs/$f.yaml --input=$d/output | tee -a log
     done
 done
 

@@ -44,8 +44,7 @@
           -configuration_directory $(arg configuration_directory)
           -configuration_basenames $(arg configuration_basenames)
           -urdf_filenames $(arg urdf_filenames)
-          -bag_filenames $(arg bag_filenames)
-          --collect_metrics"
+          -bag_filenames $(arg bag_filenames)"
       launch-prefix="$(arg launch_prefix)"
       output="screen"/>
 </launch>

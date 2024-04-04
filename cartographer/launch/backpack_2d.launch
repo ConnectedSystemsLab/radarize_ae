@@ -29,8 +29,7 @@
   <node name="cartographer_node" pkg="cartographer_ros"
       type="cartographer_node" args="
           -configuration_directory $(arg configuration_directory)
-	  -configuration_basename  $(arg configuration_basenames)
-	  --collect_metrics"
+	  -configuration_basename  $(arg configuration_basenames)"
       output="screen">
     <remap from="echoes" to="horizontal_laser_2d" />
   </node>

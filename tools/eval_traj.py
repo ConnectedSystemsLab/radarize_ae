@@ -42,8 +42,6 @@ def args():
 
 
 def load_trajs(ref_file, est_file):
-    print(ref_file)
-    print(est_file)
     traj_ref = file_interface.read_tum_trajectory_file(ref_file)
     traj_est = file_interface.read_tum_trajectory_file(est_file)
 

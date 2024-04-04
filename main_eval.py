@@ -77,12 +77,10 @@ if __name__ == "__main__":
         args.n_proc,
     )
 
-    # Train flow models.
-    subprocess.run(["tools/train_flow.py", f"--cfg={args.cfg}"], check=True)
+    # Flow models.
     subprocess.run(["tools/test_flow.py", f"--cfg={args.cfg}"], check=True)
 
-    # Train rotnet models.
-    subprocess.run(["tools/train_rot.py", f"--cfg={args.cfg}"], check=True)
+    # Rotation models.
     subprocess.run(["tools/test_rot.py", f"--cfg={args.cfg}"], check=True)
 
     # Extract odometry.
@@ -94,8 +92,7 @@ if __name__ == "__main__":
         args.n_proc,
     )
 
-    # Train UNet
-    subprocess.run(["tools/train_unet.py", f"--cfg={args.cfg}"], check=True)
+    # UNet
     run_commands(
         [
             ["tools/test_unet.py", f"--cfg={args.cfg}", f"--npz_path={x}"]
