@@ -1,78 +1,42 @@
 # Radarize
 
-## Prerequisites
+## Getting Started
 
-Note: Tested on Ubuntu 18.04 with CUDA >= 11.1 capable GPU (RTX 3090).
+### Prerequisites
 
-1. Install conda environment with 
-```shell script
-conda env create -f env.yaml
-```
+- Tested on Ubuntu 18.04+ 
+- Conda with Python 3.8+
+- CUDA >= 11.1 capable GPU (i.e. RTX 3090).
 
-2. Install [cartographer_ros](https://google-cartographer-ros.readthedocs.io/en/latest/compilation.html).
+### Setup
 
-3. Copy ```configuration_files/``` and ```launch/``` into cartographer workspace.
-
-## Dataset Preparation
-
-- Download the dataset from the [Box link]() and unzip into this directory.
-- Download the saved models+outputs from [Box link]() and unzip into this directory.
-
-### Sensor Arrangement
-<img src="calib/coords_1843.png" width="300" />
-
-### Rosbag Format
-
-```shell script
-topics:      /camera/depth/image_rect_raw/compressedDepth    4307 msgs    : sensor_msgs/CompressedImage
-             /radar0/radar_data                              1800 msgs    : xwr_raw_ros/RadarFrameFull 
-             /ti_mmwave/radar_scan_pcl_0                     1800 msgs    : sensor_msgs/PointCloud2    
-             /tracking/fisheye1/image_raw/compressed         1801 msgs    : sensor_msgs/CompressedImage
-             /tracking/fisheye2/image_raw/compressed         1800 msgs    : sensor_msgs/CompressedImage
-             /tracking/imu                                  11972 msgs    : sensor_msgs/Imu            
-             /orb_slam3                                      1787 msgs    : geometry_msgs/PoseStamped  
-             /tracking/odom/sample                          11971 msgs    : nav_msgs/Odometry
-```
-
-- `/tracking/odom/sample`: T265 VIO baseline/pseudo-groundtruth.
-- `/camera/depth/image_rect_raw/compressedDepth`: Depth camera pseudo-groundtruth.
-- `/tracking/fisheye1/image_raw/compressed`:  Black-white fisheye image from left camera.
-- `/tracking/fisheye2/image_raw/compressed`:  Black-white fisheye image from right camera.
-- `/tracking/imu`: Linearly interpolated IMU samples.
-- `/ti_mmwave/radar_scan_pcl_0`:  Radar point cloud.
-- `/radar0/radar_data`: Raw DSP samples from radar.
-
-## Training the Models 
-1. Source conda environment.
+1. Install conda environment with  ```conda env create -f env.yaml```.
+2. Source environment ```conda activate radarize_ae``` and ```pip install -e .```.
+3. Install [cartographer_ros](https://google-cartographer-ros.readthedocs.io/en/latest/compilation.html). Copy ```configuration_files/``` and ```launch/``` into cartographer workspace.
+5. Source conda environment and cartographer_ros environment.
 ```shell script
 conda activate radarize_ae
-```
-
-2. Source cartographer_ros environment.
-```shell script
 source <cartographer_workspace>/install_isolated/setup.bash
 ```
 
-2. Run the top-level script
+## Dataset Preparation
+
+1. Download the dataset from the [Box link]() and unzip into this directory.
+2. Download the saved models+outputs from [Box link]() and unzip into this directory.
+
+### Evaluation
+
+To generate results in the paper, run the top-level script
+```shell script
+./run_eval.sh 
+```
+Then,
+1. Run  ```./slam_eval.sh``` to get the SLAM metrics.
+2. Run ```./odom_eval.sh``` to get the odometry metrics.
+
+### Training from Scratch
 
 ```shell script
-./main.py --cfg=<config_file>
+./run.sh 
 ```
-
-Each model (and its associated evaluation plots) will be located in a separate folder.
-
-## Getting Metrics
-
-First, run 
-```shell script
-./slam_eval.sh
-```
-to get SLAM metrics.
-
-Second, run
-```shell script
-./odom_eval.sh
-```
-to get odometry metrics.
-
 
