@@ -21,7 +21,7 @@ def args():
     parser.add_argument(
         "--n_proc",
         type=int,
-        default=4,
+        default=1,
         help="Number of processes to use for parallel processing.",
     )
     parser.add_argument(
