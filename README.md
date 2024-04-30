@@ -1,5 +1,9 @@
 ## Radarize: Enhancing Radar SLAM with Generalizable Doppler-Based Odometry [MobiSys'24]
 
+
+https://github.com/ConnectedSystemsLab/radarize_ae/assets/14133352/b713b0d6-a548-4776-8d54-673ec6a2543d
+
+
 ### Prerequisites
 
 - Ubuntu 20.04
