@@ -2,9 +2,11 @@
 
 ### Prerequisites
 
-- Ubuntu 18.04+ 
+- Ubuntu 20.04
+- ROS Noetic
 - Conda with Python 3.8+
 - CUDA >= 11.3 capable GPU.
+- ImageMagick
 
 ### Setup
 
@@ -19,8 +21,8 @@ source <catkin_ws>/install_isolated/setup.bash
 
 ### Dataset Preparation
 
-1. Download the dataset from the [Box link]() and unzip into this directory.
-2. Download the saved models+outputs from [Box link]() and unzip into this directory.
+1. Download the dataset from the [link]() and unzip into this directory.
+2. Download the saved models+outputs from [link]() and unzip into this directory.
 
 ### Evaluation
 
