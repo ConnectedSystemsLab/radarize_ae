@@ -25,8 +25,8 @@ source <catkin_ws>/install_isolated/setup.bash
 
 ### Dataset Preparation
 
-1. Download the dataset from the [link]() and unzip into this directory.
-2. Download the saved models+outputs from [link]() and unzip into this directory.
+1. Download the dataset ```dataset.zip``` from the [link](https://zenodo.org/records/11093859) and unzip into this directory.
+2. Download the saved models+outputs ```eval.zip``` from [link](https://zenodo.org/records/11093859) and unzip into this directory.
 
 ### Evaluation
 
